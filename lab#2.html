@@ -38,15 +38,16 @@
   <p>В Соединённых Штатах сериал транслируется на кабельном телеканале FX с 5 октября 2011 года по настоящее время. 3 августа 2018 года руководство телеканала продлило шоу на десятый сезон. 9 января 2020 года шоу было продлено до 13 сезона включительно. Позже, в тот же день, был потверждено участие Сары Полсон в 10 сезоне.</p>
   <p>Несмотря на то, что отзывы о каждом сезоне разные, сериал «Американская история ужасов» был в целом хорошо воспринят телевизионными критиками, при этом большинство похвал идёт игре актёрского состава, в частности Джессике Лэнг, которая выиграла две награды «Эмми», премию «Золотой глобус» и Гильдию актёров США за свою игру в телесериале. Кроме того за свою актёрскую игру Кэти Бэйтс и Джеймс Кромвелл получили премии «Эмми», а Леди Гага — «Золотой глобус». Сериал неоднократно показывал самые высокие рейтинги для сети FX, а первый сезон стал самым просматриваемым из новых сериалов в 2011 году.</p>
 </div>
-<script>
+<script>	
   ahs.hidden = true;
-			document.onclick = function button()
-			{
-				document.body.style.overflow = "hidden";
-				ahs.hidden = false;
-				ahs.style.left = Math.round(field.clientWidth / 2 - ahs.offsetWidth / 2) + 'px';
-				ahs.style.top = Math.round(field.clientHeight / 3 - ahs.offsetHeight / 2) + 'px';
-			}
+  field.onclick = function button()
+  {
+    let fieldCoords = this.getBoundingClientRect();
+    document.body.style.overflow = "hidden";
+    ahs.hidden = false;
+    ahs.style.left = event.clientX - fieldCoords.left - field.clientLeft - ahs.clientWidth / 2 + 'px';
+    ahs.style.top = event.clientY - fieldCoords.top - field.clientTop - ahs.clientHeight / 2 + 'px';
+  }
 </script>
 </body>
 </html>
