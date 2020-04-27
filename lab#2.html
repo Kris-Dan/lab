@@ -39,15 +39,16 @@
   <p>Несмотря на то, что отзывы о каждом сезоне разные, сериал «Американская история ужасов» был в целом хорошо воспринят телевизионными критиками, при этом большинство похвал идёт игре актёрского состава, в частности Джессике Лэнг, которая выиграла две награды «Эмми», премию «Золотой глобус» и Гильдию актёров США за свою игру в телесериале. Кроме того за свою актёрскую игру Кэти Бэйтс и Джеймс Кромвелл получили премии «Эмми», а Леди Гага — «Золотой глобус». Сериал неоднократно показывал самые высокие рейтинги для сети FX, а первый сезон стал самым просматриваемым из новых сериалов в 2011 году.</p>
 </div>
 <script>	
-  ahs.hidden = true;
-  field.onclick = function button()
-  {
-    let fieldCoords = this.getBoundingClientRect();
-    document.body.style.overflow = "hidden";
-    ahs.hidden = false;
-    ahs.style.left = event.clientX - fieldCoords.left - field.clientLeft - ahs.clientWidth / 2 + 'px';
-    ahs.style.top = event.clientY - fieldCoords.top - field.clientTop - ahs.clientHeight / 2 + 'px';
-  }
+  ahs.onmousedown = function() {
+			document.onmousemove = function() {
+				ahs.style.left = event.pageX - ahs.offsetWidth / 2 + 'px';
+				ahs.style.top = event.pageY - ahs.offsetHeight / 2 + 'px';
+			};
+			ahs.onmouseup = function() {
+				document.onmousemove = null;
+			};
+			return false;
+};
 </script>
 </body>
 </html>
