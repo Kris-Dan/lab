@@ -1,0 +1,8 @@
+// Для доступа к куки необходимо использовать доменные сайты
+// Для просмотра куки любой опубликованной страницы необходимо ввести код ниже
+// В консоль разработчика и пролистать до низа страницы
+// Рекомендуется проверять на нескольких разных сайтах  
+	let ul = document.createElement('ul');
+	document.body.append(ul);
+	let data = document.cookie.split(';');
+	for (let i = 0; i<data.length; i++) { let li = document.createElement('li'); li.textContent = data[i]; ul.append(li); }
